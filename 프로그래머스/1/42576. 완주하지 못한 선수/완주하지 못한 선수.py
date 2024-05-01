@@ -7,4 +7,3 @@ def solution(participant, completion):
             return participant[i]
         
     return participant[-1]
-    return answer
