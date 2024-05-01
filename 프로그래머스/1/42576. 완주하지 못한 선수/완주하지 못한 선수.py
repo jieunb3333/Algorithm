@@ -1,9 +1,14 @@
 def solution(participant, completion):
     answer = ''
-    participant.sort()
-    completion.sort()
-    for i in range(len(completion)):
-        if participant[i] != completion[i]:
-            return participant[i]
+    hash_sum=0
+    hash_dict=dict()
+    # hash로 풀어보기.
+    for part in participant:
+        hash_dict[hash(part)] = part
+        hash_sum+=hash(part)
+    
+    for com in completion:
+        hash_sum-=hash(com)
         
-    return participant[-1]
+        
+    return hash_dict[hash_sum]
